@@ -1,0 +1,214 @@
+﻿
+.soap-edit-container-top {
+    width: 100%;
+    float: right;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.soap-edit-letter {
+    width: 3%;
+    float: right;
+    padding-right: 1%;
+    padding-left: 1%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.soap-edit-textarea {
+    width: 95%;
+    float: left;
+}
+
+    .soap-edit-textarea > textarea {
+        width: 100%;
+        border-radius: 0px;
+        font-size:16px;
+        /*border-bottom: none; 
+    border-top: none;*/
+    }
+
+
+.soap-edit-measure {
+    width: 100%;
+    float: right;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 2px;
+}
+
+
+.soap-edit-container {
+    width: 100%;
+    float: right;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.soap-container {
+    /*float: left;*/
+    /*width: 69%;*/
+    border: 1px solid #ccc;
+}
+
+
+/*--- SOAP details list ---*/
+
+.soap-details-container {
+    float: right;
+    width: 100%;
+    border: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+}
+
+    .soap-details-container > div {
+        margin-bottom:10px;
+    }
+
+.soap-rec {
+    float: right;
+    width: 94%;
+    height: 30px;
+}
+
+.soap-rec-dr-name {
+    float: right;
+    /*width: 100px;*/
+    margin-left: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.soap-rec-comma {
+    float: right;
+    width: 5px;
+    font-weight: bold;
+}
+
+.soap-rec-date {
+    float: right;
+    width: 140px;
+    direction: ltr;
+    font-weight: bold;
+}
+
+.soap-rec-btn {
+    float: left;
+    width: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+
+.soap-rec-cancel {
+    flex:1;
+}
+
+    .soap-rec-cancel > input {
+        text-align: right;
+        padding-top: 7px;
+        height: 34px;
+    }
+
+    .soap-rec-cancel > input:focus::-webkit-input-placeholder{
+        color:#3291eb;
+    }
+
+    .soap-rec-cancel > input:focus{
+        border-color:#3291eb;
+    }
+
+.soap-rec-collapsed {
+    float: right;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.soap-rec-details-top {
+    width: 100%;
+    float: right;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+    margin-top:5px;
+}
+
+.soap-rec-details {
+    width: 100%;
+    float: right;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+}
+
+.soap-rec-details-letter {
+    width: 3%;
+    float: right;
+    padding-right: 1%;
+    padding-left: 1%;
+    font-weight: bold;
+}
+
+.soap-rec-details-textarea {
+    background-color: transparent;
+    width: 97%;
+    float: right;
+    border: none;
+    border-right: 1px solid #808080;
+}
+
+.soap-rec-details-textarea-o {
+    background-color: transparent;
+    width: 100%;
+    float: right;
+    border: none;
+    border-right: 1px solid #808080;
+}
+
+.soap-rec-details-o-measure {
+    width: 100%;
+    float: right;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+}
+
+#pp:focus {
+    border: 1px solid red;
+}
+
+.soap-test {
+    padding: 10px;
+}
+
+.soap-o-measure-data {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+
+.soap-rec-btns {
+    display: flex;
+    padding-right:20px
+}
+
+.soap-rec-btns > button:first-child{
+    margin-left:10px;
+}
+
+.soap-rec-btn-last {
+    float:left;
+    margin-right:10px;
+}
+
+.soap-rec-btns > *{
+    margin-top: -6px;
+    margin-bottom:5px;
+}
+

@@ -1,0 +1,39 @@
+
+@font-face {
+    font-family: 'typopasRegular';
+
+    src: url('../fonts/typopasregularwebfont.eot');
+    src: url('../fonts/typopasregularwebfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/typopasregularwebfont.woff') format('woff'),
+		 url('../fonts/typopasregularwebfont.ttf') format('truetype'),
+         url('../fonts/typopasregularwebfont.svg#typopasRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'typopasBlack';
+    src: url('../fonts/typopasblackwebfont.eot');
+    src: url('../fonts/typopasblackwebfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/typopasblackwebfont.woff') format('woff'),
+		 url('../fonts/typopasblackwebfont.ttf') format('truetype'),
+         url('../fonts/typopasblackwebfont.svg#typopasBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'typopasBold';
+    src: url('../fonts/typopasboldwebfont.eot');
+    src: url('../fonts/typopasboldwebfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/typopasboldwebfont.woff') format('woff'),
+		 url('../fonts/typopasboldwebfont.ttf') format('truetype'),
+         url('../fonts/typopasboldwebfont.svg#typopasBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+

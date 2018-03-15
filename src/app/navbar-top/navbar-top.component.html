@@ -1,0 +1,56 @@
+<div class="navbar-fixed-top laniadoNavbar row navbar-top-container">
+
+    <div>
+        <ul class="navbar-nav nav-top-ul">
+
+            <li>
+                <!--<a href="" class="ion-ios-close-outline logout-icon" ng-click="logout($event, true)" title="התנתק"></a>-->
+                <div class="logout-icon" ng-click="logout($event, true)">
+                    <div>
+                        <i class="ion-android-close" title="התנתק"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="home-icon-cont">
+                    <!--<i class="ion-ios-home cursorPointer" title="בית" ng-click="navigate('/homePage')"></i>-->
+                    <i class="ion-ios-home cursorPointer" title="בית"></i>
+                </div>
+            </li>
+            <li>
+                <div class="home-icon-cont">
+                    <i class="ion-help-buoy cursorPointer" title="עזרה" ng-click="openModelVideo()" style="font-size: 22px;"></i>
+                </div>
+            </li>
+            <li class="messageContainer">
+              <div>
+                  <i id="blue_email" class="icon ion-ios-email-outline disabled" ng-click="$event.preventDefault();" title="Messages"></i>
+              </div>
+                <!--<a disabled="disabled"  ng-click="navigate('/under_construction')" id="blue_email"  class="icon ion-ios-email-outline cursorPointer" title="Messages"></a>-->
+                <!--<div ng-include="'views/mesage/msg.html'"></div>-->
+            </li>
+            <li ng-if="hebrewName != null" class="hebrewName">
+                <i class="navbar-text-value">
+                    <span>בס"ד, שלום</span>
+                    <span ng-bind="hebrewName"></span>
+                    <span class="colorSep">|</span>
+                    <span>כניסתך אחרונה למערכת </span>
+                    <span id="LastLogin" ng-bind="LastLogin"></span>
+                    <span ng-show="dataBaseName.val != 'laniado'" class="dataBase" ng-bind="dataBaseName.val"></span>
+                    <span ng-show="UserYechidaAndHrTofesAv.hr_k_machlaka== 4236 && selectedSugOved" class="dataBase" ng-bind="selectedSugOved"></span>
+                    <span>גרסה</span>
+                    <b>{{versionNum}}</b>
+                </i>
+            </li>
+        </ul>
+        <!--<div class="colorAnother"></div>-->
+        <!--<div style="margin-top: 10px" ng-if="navList && appList.data.length > 0">
+              <div ng-include="'views/navbarHederRight.html'"></div>
+          </div>-->
+    </div>
+
+    <div class="logo-container">
+        <img src="/assets/images/logo1-01.png" class="NavbarImage" ng-click="navigate('/homePage')" />
+    </div>
+
+</div>

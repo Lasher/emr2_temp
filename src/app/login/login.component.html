@@ -1,0 +1,89 @@
+<div>
+    <div class="col-xs-12 PleaseWait-login-container" [hidden]="!(sessionLoad || dataLogin.Active)">
+        <div class="PleaseWait-login">
+            <img src="/assets/images/loading2.gif" />
+        </div>
+    </div>
+
+    <div class="appLogin_outer_div" [hidden]="dataLogin.Active || sessionLoad">
+        <form class="form-signin form-login"
+            [formGroup]="loginForm"
+            name="form"  
+            (ngSubmit)="submitLogin()"
+            autocomplete="off"
+            spellcheck="false">
+
+            <div class="col-xs-12 cols-sm-12 col-md-12 col-lg-12 row logo-container">
+                <div class="laniado_logo_login">
+                    <img src="/assets/images/logo-b.png" />
+                </div>
+
+            </div>
+
+            <br />
+
+            <hr class="hr-login">
+
+            <div class="appLogin-msg">
+                <span ng-show="!dataLogin.Active" class="alert-danger-msg">{{dataLogin.msg}}</span>
+                <span ng-show="dataLogin.Active && dataLogin.msg" class="alert-danger-msg">{{dataLogin.msg}}</span>
+            </div>
+
+
+            <div class="col-xs-12">
+                <div [hidden]="!Wait" class="PleaseWait-login">
+                    <img src="/assets/images/loading2.gif" />
+                </div>
+            </div>
+
+            <div class="appLogin_inner_div" ng-disabled="Wait" [ngClass]="{'faded-login': Wait}">
+                <label class="control-label"></label>
+                <input type="text" 
+                      class="form-control c_blue" 
+                      id="user_name"
+                      name="userId"
+                      formControlName="userId"
+                      [userKeyPress]="capLock_message" 
+                      placeholder="User Name"
+                      tabindex="1"
+                      [autoFocus]="userLogin.userId == null || userLogin.userId == '' "
+                      required />
+
+                <label class="control-label">&nbsp;</label>
+                <input type="password" 
+                      id="password" 
+                      placeholder="Password"
+                      formControlName="password" 
+                      class="form-control c_blue" 
+                      [userKeyPress]="capLock_message" 
+                      tabindex="2"  
+                      [autoFocus]="!(userLogin.userId == null || userLogin.userId == '')"
+                      required />
+
+
+                <div class="appLogin-key-msg">
+                    <i class="fa fa-exclamation-triangle" [hidden]="!(capLock_message != '' )"></i>
+                    <span>{{capLock_message}}</span>
+                    <!-- <img src="/emr/images/Warning.png"  />-->
+                </div>
+
+                <div class="col-xs-12 login-btns">
+                    <button type="button" class="btn btn-default clear" (click)="clearFields()" ng-disabled="Wait">נקה</button>
+                    <button id="submitBtn" type="submit" class="btn btn-primary approval" [disabled]="loginForm.invalid">כניסה</button>
+                </div>
+
+            </div>
+
+
+
+            <!--<div ng-if="!Wait && dataLogin.msg" class="appLogin-msg">
+            <span ng-show="!dataLogin.Active" class="alert-danger">{{dataLogin.msg}}</span>
+            <span ng-show="dataLogin.Active && dataLogin.msg" class="alert-danger">{{dataLogin.msg}}</span>
+        </div>-->
+
+
+
+
+        </form>
+    </div>
+</div>

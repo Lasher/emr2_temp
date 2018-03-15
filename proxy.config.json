@@ -1,0 +1,13 @@
+{
+    "/api/*": {
+        "target": "http://localhost:61108",
+        "secure": false,
+        "logLevel": "debug"
+    },
+
+    "/emrSrvNewApi/*": {
+        "target": "http://localhost/emrSrvNewApi/api/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

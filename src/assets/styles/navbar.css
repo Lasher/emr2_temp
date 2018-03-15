@@ -1,0 +1,11 @@
+﻿body {
+  min-height: 100%;
+  /* padding-top: 70px; */
+  /*padding-bottom: 40px;*/
+  background-color: white;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+

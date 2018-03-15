@@ -1,0 +1,39 @@
+﻿.navbar-main-container {
+    height: 40px;
+    direction: rtl;
+    padding-right: 2% !important;
+}
+
+.main-menu {
+    margin-top:4px !important;
+    padding-left: 35px !important;
+}
+
+
+
+    .main-menu .main-menu-title {
+        float:right;
+        padding-right:10px;
+    }
+
+.main-menu-list {
+    text-align:end;
+    font-size:16px;
+}
+
+.main-menu-list .nav > li , .main-menu-list .nav > li > a{
+    display: inline-block;
+    color:#2b6aaa;
+    cursor:pointer;
+    margin-right:4px;
+}
+
+
+.main-menu-list .menu-item-seperator {
+    color:#c8c8c8;
+    padding: 10px 0px;
+}
+
+    .main-menu-list .menu-list-item i, .main-menu-list .menu-list-item img {
+        margin-left:5px;
+    }
