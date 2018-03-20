@@ -21,6 +21,8 @@ import { LoginService } from './login/login.service';
 import { HomeComponent } from './home/home.component';
 import { MainMenuComponent } from "./main-menu/main-menu.component";
 
+import { PatientsComponent } from "./patients/patients.component";
+
 import { MainMenuModule } from "./main-menu/main-menu.module";
 
 
@@ -31,7 +33,8 @@ import { MainMenuModule } from "./main-menu/main-menu.module";
     UserKeyPressDirective,
     AutoFocusDirective,
     NavbarTopComponent,
-    HomeComponent
+    HomeComponent,
+    PatientsComponent
   ],
   imports: [
     BrowserModule, 

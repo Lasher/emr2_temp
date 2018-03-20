@@ -1,10 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, Routes } from "@angular/router";
 import { LoginRequestType, DataLogin } from './login.model';
 import { SessionService } from "../services/session.service";
 import { Observable } from 'rxjs/Observable'
 import { LoginService } from './login.service';
+import { MainMenuModule } from '../main-menu/main-menu.module';
+
+import { HomeComponent } from "../home/home.component";
+import { PatientsComponent } from "../patients/patients.component";
 
 @Component({
   selector: 'app-login',
@@ -110,9 +114,19 @@ export class LoginComponent implements OnInit {
         //   console.log("module load")
         // });
 
-        import('../main-menu/main-menu.module').then(module => {
-          console.log("module load")
-        });
+        //-- simulation data
+        const appRoutes2: Routes = [
+          { path: 'home', component: HomeComponent},
+          { path: 'patients', component: PatientsComponent }
+      ];
+
+      this.router.resetConfig(appRoutes2)
+      
+        // import('../main-menu/main-menu.module').then((module:MainMenuModule) => {
+        //   console.log("module load")
+        //   console.log(module)
+        //   this.router.navigate(['/home'])
+        // });
 
 
 
