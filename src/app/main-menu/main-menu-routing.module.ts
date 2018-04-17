@@ -15,7 +15,8 @@ let mainMenuRoutes: Routes = [
             //component: MainMenuComponent,
             loadChildren: '../patients/patients.module#PatientsModule',
             canLoad:[CanLoadRouteSrv]
-        }
+        },
+        { path: 'home', redirectTo: '/home' }
     ]
     },
     

@@ -24,8 +24,12 @@ export class LoginService {
   }
 
   isLoginActive(): boolean {
-    if (this.userInfo.login.Active == true)
-      return true
+    try {
+      if (this.userInfo.login.Active == true)
+        return true
+    } catch (error) {
+      return false
+    }
 
     return false
   }

@@ -34,8 +34,6 @@ import { MainMenuModule } from "./main-menu/main-menu.module";
     LoginComponent,
     UserKeyPressDirective,
     AutoFocusDirective,
-    NavbarTopComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule, 

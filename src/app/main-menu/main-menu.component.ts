@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPermissionService } from "../services/user-permission.service"; 
 import { Router, Routes } from "@angular/router";
+import { ModuleEntry } from "../models/module-entry.model";
 
 @Component({
   selector: 'main-menu',
@@ -9,7 +10,7 @@ import { Router, Routes } from "@angular/router";
 })
 export class MainMenuComponent implements OnInit {
 
-  list = []
+  list:ModuleEntry[] = []
 
   constructor(private userPermissionService:UserPermissionService,
   private router:Router

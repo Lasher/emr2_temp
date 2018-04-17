@@ -2,8 +2,10 @@
   main-menu works!
 </p>
 
-<div *ngFor="let item of items">
-  <span>{{item.desc}}</span>
-</div>
+<ul>
+  <li *ngFor="let item of list">
+    <a routerLink="{{item.moduleName}}">{{item.desc}}</a>
+  </li>
+</ul>
 
 <router-outlet></router-outlet>
