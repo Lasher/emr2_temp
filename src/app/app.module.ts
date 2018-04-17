@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -18,10 +19,11 @@ import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { ApiService } from "./services/api.service";
 import { SessionService } from "./services/session.service";
 import { LoginService } from './login/login.service';
+import { UserPermissionService } from "./services/user-permission.service";
+import { CanLoadRouteSrv } from "./utils/canLoadRouteSrv";
+
 import { HomeComponent } from './home/home.component';
 import { MainMenuComponent } from "./main-menu/main-menu.component";
-
-import { PatientsComponent } from "./patients/patients.component";
 
 import { MainMenuModule } from "./main-menu/main-menu.module";
 
@@ -34,12 +36,12 @@ import { MainMenuModule } from "./main-menu/main-menu.module";
     AutoFocusDirective,
     NavbarTopComponent,
     HomeComponent,
-    PatientsComponent
   ],
   imports: [
     BrowserModule, 
     NgbModule.forRoot(),
     FormsModule,
+    CommonModule,
     HttpModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -48,7 +50,9 @@ import { MainMenuModule } from "./main-menu/main-menu.module";
   providers: [
     ApiService,
     SessionService,
-    LoginService
+    LoginService,
+    UserPermissionService,
+    CanLoadRouteSrv
   ],
    bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPermissionService } from "../services/user-permission.service"; 
+import { Router, Routes } from "@angular/router";
 
 @Component({
   selector: 'main-menu',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  list = []
+
+  constructor(private userPermissionService:UserPermissionService,
+  private router:Router
+  ) { }
 
   ngOnInit() {
+    this.list = this.userPermissionService.getModulesMap()
+    console.log("list: ", this.list)
+    console.log("router: ", this.router)
   }
 
 }

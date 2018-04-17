@@ -5,7 +5,9 @@ import { HomeComponent } from "./home/home.component";
 import { PatientsComponent } from "./patients/patients.component";
 
 const appRoutes: Routes = [
-    { path: 'home', component: HomeComponent, loadChildren: './main-menu/main-menu.module#MainMenuModule' },
+    { path: 'home', 
+    //component: HomeComponent, 
+    loadChildren: './main-menu/main-menu.module#MainMenuModule' },
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', redirectTo: '/login' } // not found case
@@ -22,7 +24,7 @@ const appRoutes2: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes2, {})
+        RouterModule.forRoot(appRoutes, {})
     ],
 
     exports: [

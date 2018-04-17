@@ -5,7 +5,7 @@ import { LoginRequestType, DataLogin } from './login.model';
 import { SessionService } from "../services/session.service";
 import { Observable } from 'rxjs/Observable'
 import { LoginService } from './login.service';
-import { MainMenuModule } from '../main-menu/main-menu.module';
+import { UserPermissionService } from "../services/user-permission.service";
 
 import { HomeComponent } from "../home/home.component";
 import { PatientsComponent } from "../patients/patients.component";
@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private sessionService:SessionService, 
     private loginService:LoginService,
-    private router:Router
+    private router:Router,
+    private userPermissionService:UserPermissionService
   ) { }
 
   ngOnInit() {
@@ -114,14 +115,7 @@ export class LoginComponent implements OnInit {
         //   console.log("module load")
         // });
 
-        //-- simulation data
-        const appRoutes2: Routes = [
-          { path: 'home', component: HomeComponent},
-          { path: 'patients', component: PatientsComponent }
-      ];
-
-      this.router.resetConfig(appRoutes2)
-      
+        
         // import('../main-menu/main-menu.module').then((module:MainMenuModule) => {
         //   console.log("module load")
         //   console.log(module)
@@ -129,6 +123,7 @@ export class LoginComponent implements OnInit {
         // });
 
 
+        this.userPermissionService.SetModuleEntriesList()
 
         this.router.navigate(['/home'])
       }
