@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   Wait: boolean
   userLogin: LoginRequestType = new LoginRequestType()
   dataLogin: DataLogin = new DataLogin()
-  capLock_message: string
+  capLock_message: any
   loginForm:FormGroup = new FormGroup({
     userId: new FormControl(),
     password: new FormControl()
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.controls.password.setValue("")
     this.dataLogin.Active = false
     this.setLoginBackgroundStyle()
-    this.capLock_message = ""
+    this.capLock_message = {value: ""}
   }
 
   ngAfterViewInit() {
@@ -102,12 +102,13 @@ export class LoginComponent implements OnInit {
     this.userLogin.userId = this.loginForm.controls.userId.value
     this.userLogin.password = this.loginForm.controls.password.value
     this.userLogin.firstTime = true
+    this.loginForm.disable()
 
     this.loginService.GetloginAuthentication(this.userLogin).subscribe(res => {
       console.log(res)
       if(res.login.Active && (res.login.msg == "" || res.login.msg == null)){
         this.loginService.userInfo = res
-        localStorage.setItem("userName", res.login.Name)
+        localStorage.setItem("userName", res.login.LoginName)
         var body = document.getElementsByTagName("body")[0];
         body.style.backgroundImage = ""
 
@@ -123,11 +124,14 @@ export class LoginComponent implements OnInit {
         // });
 
 
-        this.userPermissionService.SetModuleEntriesList()
-
-        this.router.navigate(['/home'])
+        this.loginService.SetUserModules(1).subscribe(res => 
+          this.router.navigate(['/home'])
+        )
       }
+
+      this.dataLogin.msg = res.login.msg
       this.Wait = false
+      this.loginForm.enable()
     }) 
 
 
@@ -146,10 +150,10 @@ export class LoginComponent implements OnInit {
   }
 
   clearFields() {
-    let inputs = this.getFormRequiredInputs()
-    for (let i = 0; i < inputs.length; i++) {
-      let elm = inputs[i];
-      elm.value = null
+    let keys = Object.keys(this.loginForm.controls)
+    for (let index = 0; index < keys.length; index++) {
+      let key = keys[index]
+      this.loginForm.get(key).setValue("")
     }
   }
 

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LoginExtended, LoginRequestType } from "./login.model";
 import { ApiService } from "../services/api.service";
+import { UserPermissionService } from "../services/user-permission.service";
+import { ModuleEntry } from "../models/module-entry.model";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 
@@ -9,7 +11,8 @@ import 'rxjs/add/operator/map';
 export class LoginService {
   private _userInfo: LoginExtended
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, 
+    private userPermissionService:UserPermissionService) { }
 
   get userInfo(): LoginExtended {
     return this._userInfo
@@ -43,6 +46,19 @@ export class LoginService {
       mapRes.userDetails = res["userYechidaAndHrTofesAv"]
       return mapRes
     })
+  }
+
+
+  SetUserModules(role: number): Observable<any> {
+    role ? null : role = this.userInfo.userDetails.sugOved
+    return Observable.create(observer => {
+      this.userPermissionService.GetMenuListByRole(role).subscribe((res: ModuleEntry[]) => {
+        this.userPermissionService.SetModulesMap(res)
+        observer.next(res)
+        observer.complete()
+      })
+    })
+
   }
 
 }

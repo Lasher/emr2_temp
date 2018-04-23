@@ -6,7 +6,7 @@ import { Directive, HostListener, Renderer, ElementRef, Input, Output, EventEmit
 export class UserKeyPressDirective {
 
   //@Output() userKeyPress = new EventEmitter()
-  @Input() userKeyPress:string
+  @Input('userKeyPress') userKeyPress:any
   message: string = ""
   tempMsg: string = ""
   capLock_bool: boolean = false
@@ -121,7 +121,7 @@ export class UserKeyPressDirective {
     }
     //--- shift key detection ---End---//
 
-    return this.userKeyPress = this.message
+    return this.userKeyPress.value = this.message
     //this.userKeyPress.emit(this.message)
 
   }
@@ -137,7 +137,7 @@ export class UserKeyPressDirective {
         this.message = this.tempMsg
       }
 
-      return this.userKeyPress = this.message
+      return this.userKeyPress.value = this.message
       //this.userKeyPress.emit(this.message)
     }
   }

@@ -16,3 +16,11 @@
 .form-login .clear{
     float: right;
 }
+
+
+.PleaseWait-login{
+    width: 70%;
+    left: 15%;
+    top: 35%;
+    margin-top:0;
+}

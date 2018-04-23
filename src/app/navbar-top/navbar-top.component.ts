@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from "../../environments/environment";
 import { Router } from "@angular/router";
+import { LoginService } from "../login/login.service";
+import { LoginExtended } from "../login/login.model";
 
 @Component({
   selector: 'navbar-top',
@@ -10,11 +12,13 @@ import { Router } from "@angular/router";
 export class NavbarTopComponent implements OnInit {
 
   versionNum:string
+  user:LoginExtended = new LoginExtended()
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private loginService:LoginService) { }
 
   ngOnInit() {  
     this.versionNum = environment.version
+    this.user = this.loginService.userInfo
   }
 
   navigate(url:string){

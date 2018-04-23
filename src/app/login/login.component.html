@@ -25,8 +25,7 @@
             <hr class="hr-login">
 
             <div class="appLogin-msg">
-                <span ng-show="!dataLogin.Active" class="alert-danger-msg">{{dataLogin.msg}}</span>
-                <span ng-show="dataLogin.Active && dataLogin.msg" class="alert-danger-msg">{{dataLogin.msg}}</span>
+                <span class="alert-danger-msg">{{dataLogin.msg}}</span>
             </div>
 
 
@@ -62,14 +61,14 @@
 
 
                 <div class="appLogin-key-msg">
-                    <i class="fa fa-exclamation-triangle" [hidden]="!(capLock_message != '' )"></i>
-                    <span>{{capLock_message}}</span>
+                    <i class="fa fa-exclamation-triangle" [hidden]="!(capLock_message.value != '' )"></i>
+                    <span>{{capLock_message.value}}</span>
                     <!-- <img src="/emr/images/Warning.png"  />-->
                 </div>
 
                 <div class="col-xs-12 login-btns">
-                    <button type="button" class="btn btn-default clear" (click)="clearFields()" ng-disabled="Wait">נקה</button>
-                    <button id="submitBtn" type="submit" class="btn btn-primary approval" [disabled]="loginForm.invalid">כניסה</button>
+                    <button type="button" class="btn btn-default clear" (click)="clearFields()" [disabled]="loginForm.disabled">נקה</button>
+                    <button id="submitBtn" type="submit" class="btn btn-primary approval" [disabled]="loginForm.invalid || loginForm.disabled">כניסה</button>
                 </div>
 
             </div>

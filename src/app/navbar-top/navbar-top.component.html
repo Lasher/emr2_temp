@@ -32,10 +32,10 @@
             <li ng-if="hebrewName != null" class="hebrewName">
                 <i class="navbar-text-value">
                     <span>בס"ד, שלום</span>
-                    <span ng-bind="hebrewName"></span>
+                    <span [innerHtml]="user.login.appUserInfoType.user_name"></span>
                     <span class="colorSep">|</span>
                     <span>כניסתך אחרונה למערכת </span>
-                    <span id="LastLogin" ng-bind="LastLogin"></span>
+                    <span id="LastLogin" ngBind="user.userInfo"></span>
                     <span ng-show="dataBaseName.val != 'laniado'" class="dataBase" ng-bind="dataBaseName.val"></span>
                     <span ng-show="UserYechidaAndHrTofesAv.hr_k_machlaka== 4236 && selectedSugOved" class="dataBase" ng-bind="selectedSugOved"></span>
                     <span>גרסה</span>

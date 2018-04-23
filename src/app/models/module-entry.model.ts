@@ -1,6 +1,7 @@
 import { Observable } from "rxjs/observable";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/map";
+import { ApiService } from "../services/api.service";
 
 export class ModuleEntry {
     moduleName:string
@@ -19,11 +20,19 @@ export class ModuleEntriesList {
         { moduleName: 'discharged', canLoad: true, desc: 'רשימת משוחררים' }
     ]
 
-    public GetList():Observable<Array<ModuleEntry>> {
-        return Observable.create(observer => {
-            observer.next(this._list);
-            observer.complete();
-        });
+    // public GetList():Observable<Array<ModuleEntry>> {
+    //     return Observable.create(observer => {
+    //         observer.next(this._list);
+    //         observer.complete();
+    //     });
+    // }
+
+    public GetList():Array<ModuleEntry> {
+       return this._list
+    }
+
+    public SetList(list:ModuleEntry[]){
+        this._list = list
     }
      
 }
