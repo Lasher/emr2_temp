@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { MainMenuComponent } from "./main-menu.component";
+import { InnerMenuComponent } from "./inner-menu.component";
 import { CanLoadRouteSrv } from "../utils/canLoadRouteSrv";
 
 
 let mainMenuRoutes: Routes = [
     {
         path: '',
-        component: MainMenuComponent,
+        component: InnerMenuComponent,
         children: [
-            { path: 'home', redirectTo: '/home' },
             {
-                path: 'patients',
-                //component: MainMenuComponent,
-                loadChildren: '../patients/patients.module#PatientsModule',
+                path: 'drugIns',
+                loadChildren: '../drug-ins/drug-ins.module#DrugInsModule',
                 canLoad: [CanLoadRouteSrv]
             },
             {
-                path: 'discharged',
-                loadChildren: '../discharged/discharged.module#DischargedModule',
+                path: 'solutionIns',
+                loadChildren: '../solution-ins/solution-ins.module#SolutionInsModule',
+                canLoad: [CanLoadRouteSrv]
+            },
+            {
+                path: 'generalIns',
+                loadChildren: '../general-ins/general-ins.module#GeneralInsModule',
                 canLoad: [CanLoadRouteSrv]
             }
         ]
@@ -35,13 +38,13 @@ let mainMenuRoutes: Routes = [
         CommonModule
     ],
     declarations: [
-        MainMenuComponent
+        InnerMenuComponent
     ],
 
     exports: [
         RouterModule,
-        MainMenuComponent
+        InnerMenuComponent
     ]
 })
 
-export class MainMenuRoutingModule { }
+export class InnerMenuRoutingModule { }

@@ -63,7 +63,6 @@
                 <div class="appLogin-key-msg">
                     <i class="fa fa-exclamation-triangle" [hidden]="!(capLock_message.value != '' )"></i>
                     <span>{{capLock_message.value}}</span>
-                    <!-- <img src="/emr/images/Warning.png"  />-->
                 </div>
 
                 <div class="col-xs-12 login-btns">
@@ -71,17 +70,7 @@
                     <button id="submitBtn" type="submit" class="btn btn-primary approval" [disabled]="loginForm.invalid || loginForm.disabled">כניסה</button>
                 </div>
 
-            </div>
-
-
-
-            <!--<div ng-if="!Wait && dataLogin.msg" class="appLogin-msg">
-            <span ng-show="!dataLogin.Active" class="alert-danger">{{dataLogin.msg}}</span>
-            <span ng-show="dataLogin.Active && dataLogin.msg" class="alert-danger">{{dataLogin.msg}}</span>
-        </div>-->
-
-
-
+            </div>         
 
         </form>
     </div>

@@ -4,7 +4,7 @@ import { Observable } from "rxjs/observable";
 import "rxjs/add/operator/map";
 import { ModuleEntry, ModuleEntriesList } from "../models/module-entry.model";
 import { ApiService } from "../services/api.service";
-import { menuItemType } from "../models/menu-item.model";
+import { MenuItemType } from "../models/menu-item.model";
 
 @Injectable()
 export class UserPermissionService {
@@ -23,28 +23,37 @@ export class UserPermissionService {
     return this._modulesMap
   }
 
-  SetModulesMap(list: Array<ModuleEntry>){
+  SetModulesMap(list: Array<ModuleEntry>) {
     this._modulesMap = list;
   }
 
-  getModuleObj(name: string): ModuleEntry {
-    return _.find(this._modulesMap, ['moduleName', name]);
+  getModuleObj(name: string, list: ModuleEntry[] = null): ModuleEntry {
+    !list ? list = this._modulesMap : null
+    let res = _.find(list, ['moduleName', name])
+    if (!res) {
+      for (let index = 0; index < list.length; index++) {
+        const item = list[index];
+        if (item.children.length > 0) {
+          res = this.getModuleObj(name, item.children)
+          if(res)
+            return res  
+        }
+      }
+    }
+    return res;
   }
 
   GetMenuListByRole(role: number): Observable<Array<ModuleEntry>> {
 
-    return this.apiService.GetApiDataCustom('ApiMenu/GetMenuListX?role=' + role).map((res: Array<menuItemType>) => {
+    return this.apiService.GetApiDataCustom('ApiMenu/GetMenuListX?role=' + role).map((res: Array<MenuItemType>) => {
       let modulesList = new Array<ModuleEntry>()
 
       for (let index = 0; index < res.length; index++) {
-        let item: menuItemType = res[index];
+        let item: MenuItemType = res[index];
         let m = new ModuleEntry()
-        if (!item.pageUrl.length)
-          continue
 
-        m.moduleName = item.pageUrl
-        m.desc = item.pageName
-        m.canLoad = true
+        m.ConvertFromMenuItem(item)
+
         modulesList.push(m)
       }
 

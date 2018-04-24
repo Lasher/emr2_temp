@@ -20,4 +20,9 @@ export class SessionService {
     })
   }
 
+  SetSessionAbandon():Observable<any> {
+    let url = "SetSessionAbandon";
+    return this.apiService.GetApiData(url)
+  }
+
 }

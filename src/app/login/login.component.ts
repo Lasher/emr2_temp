@@ -42,8 +42,10 @@ export class LoginComponent implements OnInit {
     this.loginForm.controls.userId.setValue(this.userLogin.userId)
     this.loginForm.controls.password.setValue("")
     this.dataLogin.Active = false
-    this.setLoginBackgroundStyle()
+    this.loginService.setLoginBackgroundStyle()
     this.capLock_message = {value: ""}
+
+    this.sessionValidation()
   }
 
   ngAfterViewInit() {
@@ -53,51 +55,13 @@ export class LoginComponent implements OnInit {
   }
 
 
-  setLoginBackgroundStyle() {
-    try {
-
-      var x = Math.floor(Math.random() * 5 + 1);
-      var y = window.innerHeight;
-
-      //var aaa = document.getElementById("aaa");
-      var body = document.getElementsByTagName("body")[0];
-      if (body) {
-        body.style.backgroundSize = "120% " + y * 1.2 + "px"
-        body.style.backgroundImage = "url('/assets/images/l" + x + ".jpg')"
-      }
-
-      //document.getElementById("container").style.display = "none";
-      var footer = document.getElementsByTagName("footer");
-      if (footer.length > 0) {
-        footer[0].style.display = "none";
-      }
-
-    } catch (e) {
-      var b = e;
-    }
-  }
-
 
   userKeyPressEvent(keyMsg: string) {
     this.capLock_message = keyMsg
   }
 
   submitLogin() {
-    // this.sessionService.isSessionValid().subscribe(res => {
-      
-    //   if(res && res.login && res.userDetails){
-    //     if(res.userDetails.appUserInfoType){
-    //       if(res.userDetails.appUserInfoType.id){
-    //         this.loginService.userInfo = res
-    //         localStorage.setItem("userName", this.form.nativeElement["userId"].value)
-    //         return 
-    //       }
-    //     }
-    //   }
-      
-    //   console.log("session: ", res)
-    // })
-
+   
     this.Wait = true
     this.userLogin.userId = this.loginForm.controls.userId.value
     this.userLogin.password = this.loginForm.controls.password.value
@@ -107,26 +71,12 @@ export class LoginComponent implements OnInit {
     this.loginService.GetloginAuthentication(this.userLogin).subscribe(res => {
       console.log(res)
       if(res.login.Active && (res.login.msg == "" || res.login.msg == null)){
-        this.loginService.userInfo = res
-        localStorage.setItem("userName", res.login.LoginName)
-        var body = document.getElementsByTagName("body")[0];
-        body.style.backgroundImage = ""
+        this.loginService.LogInExe(res)
 
         // import('../main-menu/main-menu.module').then(module => {
         //   console.log("module load")
         // });
 
-        
-        // import('../main-menu/main-menu.module').then((module:MainMenuModule) => {
-        //   console.log("module load")
-        //   console.log(module)
-        //   this.router.navigate(['/home'])
-        // });
-
-
-        this.loginService.SetUserModules(1).subscribe(res => 
-          this.router.navigate(['/home'])
-        )
       }
 
       this.dataLogin.msg = res.login.msg
@@ -169,6 +119,21 @@ export class LoginComponent implements OnInit {
     }
 
     return inputs
+  }
+
+
+  sessionValidation(){
+    this.sessionService.isSessionValid().subscribe(res => {
+      
+      if(res && res.login && res.userDetails){
+        if(res.userDetails.appUserInfoType){
+          if(res.userDetails.appUserInfoType.id){
+            this.loginService.LogInExe(res)
+            return 
+          }
+        }
+      }
+    })
   }
 
 }

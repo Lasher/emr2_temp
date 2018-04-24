@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { PatientsRoutingModule } from "./paitents-routing.module";
-
+import { PatientsRoutingModule } from "./patients-routing.module";
 import { PatientsComponent } from "./patients.component";
 
 @NgModule({
@@ -10,7 +8,6 @@ import { PatientsComponent } from "./patients.component";
     CommonModule,
     PatientsRoutingModule
   ],
-  declarations: [
-  ]
+  declarations: []
 })
 export class PatientsModule { }

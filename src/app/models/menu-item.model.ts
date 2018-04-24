@@ -1,4 +1,4 @@
-export class menuItemType {
+export class MenuItemType {
     private _urlPagesID: number
     private _parentUrlPageID: number // nullable
     private _mainEntry: boolean
@@ -8,7 +8,7 @@ export class menuItemType {
     private _urlPageSort: number
     private _isDefault: boolean
     private _rolePermission: number
-    private _children: Array<menuItemType>
+    private _children: Array<MenuItemType>
 
     // urlPagesID
     public get urlPagesID() : number {
@@ -84,17 +84,17 @@ export class menuItemType {
     }
 
      // children
-     public get children() : Array<menuItemType> {
+     public get children() : Array<MenuItemType> {
         return this._children
     }
-    public set children(v : Array<menuItemType>) {
+    public set children(v : Array<MenuItemType>) {
         this._children = v;
     }
 
     
 
     public menuItemType() {
-        this.children = new Array<menuItemType>();
+        this.children = new Array<MenuItemType>();
     }
 
 }

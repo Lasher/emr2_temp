@@ -25,4 +25,8 @@ export class NavbarTopComponent implements OnInit {
     this.router.navigate([url])
   }
 
+  logOut(){
+    this.loginService.LogOut()
+  }
+
 }

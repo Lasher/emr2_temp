@@ -1,0 +1,17 @@
+<p>
+  inner-menu works!
+</p>
+
+<ul>
+  <li *ngFor="let item of mainMenuItem.children">
+    <a *ngIf="item.moduleName" routerLink="{{item.moduleName}}">{{item.desc}}</a>
+    <span *ngIf="!item.moduleName">{{item.desc}}</span>
+    <ul *ngIf="item.children.length > 0">
+      <li *ngFor="let child of item.children">
+        <a routerLink="{{child.moduleName}}">{{child.desc}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

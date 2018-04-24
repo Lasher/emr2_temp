@@ -1,10 +1,7 @@
-<p>
-  main-menu works!
-</p>
-
 <ul>
   <li *ngFor="let item of list">
-    <a routerLink="{{item.moduleName}}">{{item.desc}}</a>
+    <!-- <a routerLink="{{item.moduleName}}">{{item.desc}}</a> -->
+    <a (click)="menuSelect(item)">{{item.desc}}</a>
   </li>
 </ul>
 
