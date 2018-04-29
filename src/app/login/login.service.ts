@@ -75,7 +75,7 @@ export class LoginService {
 
     //-- load modules --//
     this.SetUserModules(1).subscribe(res => 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/main'])
     )
   }
 
@@ -89,7 +89,7 @@ export class LoginService {
       var body = document.getElementsByTagName("body")[0];
       if (body) {
         body.style.backgroundSize = "120% " + y * 1.2 + "px"
-        body.style.backgroundImage = "url('/assets/images/l" + x + ".jpg')"
+        body.style.backgroundImage = "url('assets/images/l" + x + ".jpg')"
       }
 
       var footer = document.getElementsByTagName("footer");
@@ -106,8 +106,7 @@ export class LoginService {
   LogOut(){
     this.userInfo = new LoginExtended()
     this.sessionService.SetSessionAbandon().subscribe(res => 
-      //this.router.navigate(['/login'])
-      window.location.href = '/login'
+      window.location.href = document.baseURI
     )
   }
 

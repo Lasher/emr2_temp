@@ -10,7 +10,8 @@ const API_URL = environment.apiUrl;
 const apiRelativePath: string = "ApiList/"
 
 const headers: HttpHeaders = new HttpHeaders()
-  .set("access-control-allow-origin", "*");
+  .set("access-control-allow-origin", "*")
+  .set("withCredentials","true");
 
   function identity<T>(arg: T): T {
     return arg;

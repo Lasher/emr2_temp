@@ -1,2 +1,70 @@
 {
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "emr2",
+                "description": "emr angular package",
+                "files": [
+                    "/dist/**"
+                ],
+                "exclude": []
+            }
+        ],
+
+        "targets": [
+            {
+                "type": "local",
+                "name": "localhost",
+                "description": "A local folder",
+
+                "dir": "c:/inetpub/wwwroot/emr2",
+
+                "beforeDeploy": [
+                    {
+                        "type": "exec",
+                        "command": "npm run build-app"
+                    }
+                ],
+
+                "deployed": [
+                    {
+                        "type": "open",
+                        "target": "http://localhost/emr2"
+                    }
+                ]
+            },
+
+            {
+                "type": "local",
+                "name": "landev16",
+                "description": "A SMB shared network folder",
+
+                "dir": "\\\\landev16\\c$\\inetpub\\wwwroot\\emr2",
+
+                "beforeDeploy": [
+                    {
+                        "type": "exec",
+                        "command": "npm run build-app"
+                    }
+                ],
+
+                "deployed": [
+                    {
+                        "type": "open",
+                        "target": "https://landev16/emr2"
+                    }
+                ]
+            }
+        ],
+
+        "buttons": [
+            {
+                "text": "Deploy",
+                
+                "command": "extension.deploy.reloaded.deployWorkspace",
+                "arguments": [ "emr2", "localhost" ]
+            }
+        ]
+    }
+
 }

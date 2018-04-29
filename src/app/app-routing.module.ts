@@ -6,7 +6,7 @@ import { PatientsComponent } from "./patients/patients.component";
 import { CanLoadRouteSrv } from "./utils/canLoadRouteSrv";
 
 const appRoutes: Routes = [
-    { path: 'home', loadChildren: './home/home.module#HomeModule', canLoad: [CanLoadRouteSrv] },
+    { path: 'main', loadChildren: './main/main.module#MainModule', canLoad: [CanLoadRouteSrv] },
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', redirectTo: '/login' } // not found case

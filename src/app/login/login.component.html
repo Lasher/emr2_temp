@@ -1,11 +1,11 @@
 <div>
     <div class="col-xs-12 PleaseWait-login-container" [hidden]="!(sessionLoad || dataLogin.Active)">
         <div class="PleaseWait-login">
-            <img src="/assets/images/loading2.gif" />
+            <img src="assets/images/loading2.gif" />
         </div>
     </div>
 
-    <div class="appLogin_outer_div" [hidden]="dataLogin.Active || sessionLoad">
+    <div class="appLogin_outer_div" [hidden]="dataLogin.Active || !isSessionLoaded">
         <form class="form-signin form-login"
             [formGroup]="loginForm"
             name="form"  
@@ -15,7 +15,7 @@
 
             <div class="col-xs-12 cols-sm-12 col-md-12 col-lg-12 row logo-container">
                 <div class="laniado_logo_login">
-                    <img src="/assets/images/logo-b.png" />
+                    <img src="assets/images/logo-b.png" />
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
 
             <div class="col-xs-12">
                 <div [hidden]="!Wait" class="PleaseWait-login">
-                    <img src="/assets/images/loading2.gif" />
+                    <img src="assets/images/loading2.gif" />
                 </div>
             </div>
 

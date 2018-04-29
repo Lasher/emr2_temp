@@ -16,9 +16,11 @@ export class CanLoadRouteSrv implements CanLoad {
         if(!this.loginService.isLoginActive())
             return false
         
+        if(route.path == 'main')
+            return true
+
         let moduleObj = this.userPermissonService.getModuleObj(route.path)
 
         return moduleObj ? moduleObj['canLoad'] : false;
-        //return false
     }
   }

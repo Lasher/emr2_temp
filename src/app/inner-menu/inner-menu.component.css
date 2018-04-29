@@ -1,0 +1,9 @@
+.list-group, .list-group-item{
+    direction: rtl;
+    text-align: right;
+}
+
+
+.list-group-item.child{
+    text-indent: 20px;
+}

@@ -1,8 +1,14 @@
 <ul>
   <li *ngFor="let item of list">
-    <!-- <a routerLink="{{item.moduleName}}">{{item.desc}}</a> -->
     <a (click)="menuSelect(item)">{{item.desc}}</a>
   </li>
 </ul>
+
+<!-- <ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let item of list">
+    <a class="nav-link active" (click)="menuSelect(item)">{{item.desc}}</a>
+  </li>
+</ul> -->
+
 
 <router-outlet></router-outlet>

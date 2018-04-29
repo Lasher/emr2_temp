@@ -1,3 +1,4 @@
+//-- modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,25 +8,23 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 
+//-- custom modules
 import { AppRoutingModule } from "./app-routing.module";
 
+//-- components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NavbarTopComponent } from './navbar-top/navbar-top.component';
 
+//-- directives
 import { UserKeyPressDirective } from './directives/user-key-press.directive';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 
+//-- services
 import { ApiService } from "./services/api.service";
 import { SessionService } from "./services/session.service";
 import { LoginService } from './login/login.service';
 import { UserPermissionService } from "./services/user-permission.service";
 import { CanLoadRouteSrv } from "./utils/canLoadRouteSrv";
-
-import { HomeComponent } from './home/home.component';
-import { MainMenuComponent } from "./main-menu/main-menu.component";
-
-import { MainMenuModule } from "./main-menu/main-menu.module";
 
 
 @NgModule({

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('loginForm') form: ElementRef;
 
-  sessionLoad: boolean
+  isSessionLoaded: boolean
   Wait: boolean
   userLogin: LoginRequestType = new LoginRequestType()
   dataLogin: DataLogin = new DataLogin()
@@ -36,13 +36,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessionLoad = false
+    this.isSessionLoaded = false
     this.Wait = false
-    this.userLogin.userId = localStorage.getItem("userName") ? localStorage.getItem("userName") : ""
+    let lclStrgUsr = localStorage.getItem("userName");
+    this.userLogin.userId = lclStrgUsr && lclStrgUsr != "null" ? lclStrgUsr : ""
     this.loginForm.controls.userId.setValue(this.userLogin.userId)
     this.loginForm.controls.password.setValue("")
-    this.dataLogin.Active = false
-    this.loginService.setLoginBackgroundStyle()
+    this.dataLogin.Active = false 
     this.capLock_message = {value: ""}
 
     this.sessionValidation()
@@ -123,6 +123,8 @@ export class LoginComponent implements OnInit {
 
 
   sessionValidation(){
+    this.Wait = true
+    this.isSessionLoaded = false
     this.sessionService.isSessionValid().subscribe(res => {
       
       if(res && res.login && res.userDetails){
@@ -133,6 +135,9 @@ export class LoginComponent implements OnInit {
           }
         }
       }
+      this.Wait = false
+      this.isSessionLoaded = true
+      this.loginService.setLoginBackgroundStyle()
     })
   }
 

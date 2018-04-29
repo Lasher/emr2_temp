@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
 
-  apiUrl: "http://localhost/emrSrvNewApi/api/",
+  apiUrl: "/emrSrvNewApi/api/",
   version: require('../../package.json').version
 };
