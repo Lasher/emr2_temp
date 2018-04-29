@@ -25,6 +25,7 @@ let mainMenuRoutes: Routes = [
                 loadChildren: '../general-ins/general-ins.module#GeneralInsModule',
                 canLoad: [CanLoadRouteSrv]
             }
+
         ]
     },
 

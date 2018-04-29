@@ -10,7 +10,7 @@ let mainMenuRoutes: Routes = [
         path: '',
         component: MainMenuComponent,
         children: [
-            { path: 'home', redirectTo: '/home' },
+            
             {
                 path: 'patients',
                 //component: MainMenuComponent,
@@ -21,7 +21,14 @@ let mainMenuRoutes: Routes = [
                 path: 'discharged',
                 loadChildren: '../discharged/discharged.module#DischargedModule',
                 canLoad: [CanLoadRouteSrv]
-            }
+            },
+            {
+                path: 'home',
+                loadChildren: '../home/home.module#HomeModule',
+                canLoad: [CanLoadRouteSrv]
+            },
+
+            { path: '**', redirectTo: '' } // not found case
         ]
     },
 

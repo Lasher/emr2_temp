@@ -8,6 +8,7 @@ let Routes: Routes = [
         path: '', 
         component: DischargedComponent
     },
+    { path: '**', redirectTo: '' } // not found case
       
   ];
 

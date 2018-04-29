@@ -19,7 +19,8 @@ let Routes: Routes = [
                 loadChildren: '../inner-menu/inner-menu.module#InnerMenuModule'
             }
         ]
-    }
+    },
+    { path: '**', redirectTo: '' } // not found case
 
 ];
 
