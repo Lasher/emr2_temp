@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "debug": "ng serve --configuration debug",
-    "build-app": "ng build --bh /emr2/"
+    "build-app": "ng build --base-href /emr2/"
   },
   "private": true,
   "dependencies": {
