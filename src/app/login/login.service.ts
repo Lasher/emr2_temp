@@ -4,8 +4,8 @@ import { ApiService } from "../services/api.service";
 import { UserPermissionService } from "../services/user-permission.service";
 import { SessionService } from "../services/session.service";
 import { ModuleEntry } from "../models/module-entry.model";
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
+
 import { Router } from "@angular/router";
 
 @Injectable()

@@ -1,5 +1,6 @@
 //-- modules
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,7 +36,8 @@ import { CanLoadRouteSrv } from "./utils/canLoadRouteSrv";
     AutoFocusDirective,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    BrowserAnimationsModule, 
     NgbModule.forRoot(),
     FormsModule,
     CommonModule,

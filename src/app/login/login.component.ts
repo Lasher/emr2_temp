@@ -3,7 +3,7 @@ import { FormGroup, FormControl, ReactiveFormsModule } from "@angular/forms";
 import { Router, Routes } from "@angular/router";
 import { LoginRequestType, DataLogin } from './login.model';
 import { SessionService } from "../services/session.service";
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs'
 import { LoginService } from './login.service';
 import { UserPermissionService } from "../services/user-permission.service";
 

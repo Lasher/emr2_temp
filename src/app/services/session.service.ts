@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from "./api.service";
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
+
 import { LoginExtended } from "../login/login.model";
 
 

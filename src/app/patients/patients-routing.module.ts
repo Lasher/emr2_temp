@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PatientsComponent } from './patients.component';
-import { InnerMenuModule } from "../inner-menu/inner-menu.module";
+import { InnerMenuModule } from '../inner-menu/inner-menu.module';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
+import { PatientsService } from './patients.service';
+import {TableModule} from 'primeng/table';
+import { CommonModule } from '@angular/common';
 
 
-let Routes: Routes = [
+const Routes: Routes = [
     {
         path: '',
         component: PatientsComponent,
@@ -28,15 +31,19 @@ let Routes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forChild(Routes),
+        CommonModule,
+        TableModule
     ],
     declarations: [
         PatientsComponent,
         PatientDetailComponent
     ],
-
+    providers: [
+        PatientsService
+    ],
     exports: [
         RouterModule
     ]
 })
 
-export class PatientsRoutingModule { }
+export class PatientsRoutingModule {}

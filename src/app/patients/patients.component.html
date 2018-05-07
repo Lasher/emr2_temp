@@ -1,7 +1,44 @@
 <p>
-  patients works!
+    patients works!
 </p>
 
-<a routerLink="patientDetail">patient-detail</a>
+<!-- <a routerLink="patientDetail">patient-detail</a> -->
 
-<!-- <router-outlet></router-outlet> -->
+<div class="row flex-fill justify-content-center align-items-center" style="padding:0 2%;min-height:500px;">
+   
+    <div [hidden]="!loading">
+        <h1><i class="fa fa-spin fa-2x fa fa-spin fa-2x fa-circle-o-notch"></i></h1>
+    </div>
+
+    <div class="flex" [hidden]="loading">
+        <h3 class="first">Ng-Prime Table</h3>
+        <p-table class="text-right rtl no-stripes" [columns]="cols" [value]="patients" [scrollable]="true" 
+        [scrollHeight]="scrollableHeight" [rowHover]="true" sortField="mispar_ishpuz" 
+        [reorderableColumns]="true" [loading]="loading" [sortOrder]="-1">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>
+                        מס'
+                    </th>
+                    <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+                        {{col.title}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+                <tr routerLink="patientDetail">
+                    <td>
+                        <div [ngClass]="{ 'female_badge': rowData.k_min_type.k_min == 2, 'male_badge': rowData.k_min_type.k_min == 1 }">
+                            {{i + 1}}
+                        </div>
+                    </td>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>
