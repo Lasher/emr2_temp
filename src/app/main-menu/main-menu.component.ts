@@ -13,6 +13,8 @@ import * as _ from "lodash";
 export class MainMenuComponent implements OnInit {
 
   list:ModuleEntry[] = []
+  default:ModuleEntry
+  selectedItem:ModuleEntry
 
   constructor(
     private userPermissionService:UserPermissionService,
@@ -26,11 +28,17 @@ export class MainMenuComponent implements OnInit {
     this.list = this.list.length > 0 ? _.filter(this.list, ['isMain', true]) : []
     console.log("list: ", this.list)
     console.log("router: ", this.router)
+
+    this.default = _.find(this.list, ['isDefault', true]);
+    if(this.default){
+      this.menuSelect(this.default);
+    }
   }
 
   menuSelect(mdlEnt:ModuleEntry){
     this.mainMenuService.currentMenuItem = mdlEnt
     this.router.navigate([mdlEnt.moduleName], { relativeTo: this.activatedRoute })
+    this.selectedItem = mdlEnt
   }
 
 }

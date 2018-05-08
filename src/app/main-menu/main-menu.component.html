@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of list">
-    <a (click)="menuSelect(item)">{{item.desc}}</a>
+    <a (click)="menuSelect(item)" [ngClass]="{'active': item.moduleName == selectedItem.moduleName}">{{item.desc}}</a>
   </li>
 </ul>
 
